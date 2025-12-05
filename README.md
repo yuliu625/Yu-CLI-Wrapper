@@ -1,2 +1,2 @@
-# Yu-CLI-Wrapper
+# CLI Wrapper
 
