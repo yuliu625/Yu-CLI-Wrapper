@@ -44,7 +44,7 @@ dry_run = True  # Change to False for actual execution
 
 ## Related Projects
 Other toolkits I maintain that you might find useful:
-- **[Python-Environment-Configs](https://github.com/yuliu625/Yu-Python-Environment-Configs)**: Environment configurations for the Python toolchain (Pip, Conda, UV, etc.).
-- **[Deployment-Toolkit](https://github.com/yuliu625/Yu-Deployment-Toolkit)**: A collection of native OS scripts (Shell/PowerShell).
-- **[CLI-Wrapper](https://github.com/yuliu625/Yu-CLI-Wrapper)**: A Python-wrapped set of complex CLI tools for safer, friendlier operations.
+- **[Python-Environment-Configurations](https://github.com/yuliu625/Yu-Python-Environment-Configurations)**: Environment configurations for Python toolchains (Pip, Conda, UV, etc.).
+- **[Deployment-Toolkit](https://github.com/yuliu625/Yu-Deployment-Toolkit)**: A collection of raw OS scripts (Shell/PowerShell).
+- **[CLI-Wrapper](https://github.com/yuliu625/Yu-CLI-Wrapper)**: A safer, more user-friendly Python wrapper for complex CLI tools.
 
