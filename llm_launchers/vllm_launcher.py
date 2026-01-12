@@ -1,5 +1,9 @@
 """
-Document source: https://docs.vllm.ai/en/stable/cli/serve/
+Source:
+    https://github.com/yuliu625/Yu-CLI-Wrapper/llm_launcher/vllm_launcher.py
+
+Reference:
+    https://docs.vllm.ai/en/stable/cli/serve/
 
 VLLM的启动器。
 
@@ -13,6 +17,7 @@ VLLM的设计使得在部署推理服务时，使用CLI是更好的选择。然�
 """
 
 from __future__ import annotations
+from loguru import logger
 
 import subprocess
 
@@ -68,7 +73,7 @@ class VLLMLauncher:
             )
             return result
         except Exception as e:
-            print(e)
+            logger.error(e)
 
     @staticmethod
     def stop_vllm() -> None:
