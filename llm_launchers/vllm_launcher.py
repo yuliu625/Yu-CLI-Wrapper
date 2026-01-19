@@ -19,7 +19,6 @@ Notes:
 """
 
 from __future__ import annotations
-from loguru import logger
 
 import subprocess
 
@@ -35,6 +34,7 @@ class VLLMLauncher:
         model: str,
         host: str | None = None,
         port: int | None = None,
+        gpu_memory_utilization: float | None = None,
         lora_modules: dict[str, str] | None = None,
     ) -> CompletedProcess[str]:
         """
@@ -65,6 +65,8 @@ class VLLMLauncher:
             command.extend(['--host', host])
         if port:
             command.extend(['--port', str(port)])
+        if gpu_memory_utilization:
+            command.extend(['--gpu-memory--utilization', str(gpu_memory_utilization)])
         if lora_modules:
             command.extend(['--lora-modules', lora_modules])
         # launch vllm server
@@ -75,7 +77,7 @@ class VLLMLauncher:
             )
             return result
         except Exception as e:
-            logger.error(e)
+            print(e)
 
     @staticmethod
     def stop_vllm() -> None:
@@ -90,10 +92,11 @@ class VLLMLauncher:
 if __name__ == '__main__':
     # 一次设置以下参数即可。如果有多个模型需要部署，简单的，复制和配置该文件多次。
     VLLMLauncher.start_vllm(
-        mode='chat',
+        mode='serve',
         model=r'',
         host='127.0.0.1',
         port=8000,
+        gpu_memory_utilization=0.1,
         lora_modules=None,
     )
 
