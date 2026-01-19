@@ -13,14 +13,51 @@ from typing import TYPE_CHECKING
 # if TYPE_CHECKING:
 
 
-def test_vllm_status():
-    ...
+@pytest.mark.parametrize(
+    "port", [
+    ('12345'),
+])
+def test_vllm_status(
+    port: int,
+) -> None:
+    result = subprocess.run(
+        ['url', f"http://localhost:{port}/health"],
+    )
+    print(result)
 
 
-def test_vllm_via_curl():
-    ...
+@pytest.mark.parametrize(
+    "model_name_or_path, port", [
+    (r"", 12345),
+])
+def test_vllm_via_curl(
+    model_name_or_path: str,
+    port: int,
+) -> None:
+    result = subprocess.run(
+        [
+            'curl', f"http://localhost:{port}/v1/chat/completions",
+            '-H', 'Content-Type: application/json',
+            '-d', '{"model": "{model_name_or_path}", "message": {"role": "user", "content": "Who are you?"}"}'
+        ]
+    )
+    print(result)
 
 
-def test_vllm_via_openai_client():
-    ...
+@pytest.mark.parametrize(
+    "model_name_or_path, port", [
+    (r"", 12345),
+])
+def test_vllm_via_openai_client(
+    model_name_or_path: str,
+    port: int,
+) -> None:
+    from openai import OpenAI
+    client = OpenAI(base_url=f"http://localhost:{port}/v1", api_key="None")
+    completion = client.chat.completions.create(
+        model=model_name_or_path,
+        messages=[{"role": "user", "content": "Who are you?"}],
+    )
+    print(completion)
+    # print(completion.choices[0].message.content)
 
