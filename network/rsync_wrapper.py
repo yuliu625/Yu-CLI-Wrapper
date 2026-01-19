@@ -6,7 +6,6 @@ Source:
 """
 
 from __future__ import annotations
-from loguru import logger
 
 import subprocess
 
