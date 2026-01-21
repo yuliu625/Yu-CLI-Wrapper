@@ -1,6 +1,6 @@
 """
 Sources:
-    https://github.com/yuliu625/Yu-CLI-Wrapper/llm_launcher/vllm_launcher.py
+    https://github.com/yuliu625/Yu-CLI-Wrapper/llm_launchers/vllm_launcher.py
 
 References:
     https://docs.vllm.ai/en/stable/cli/serve/
@@ -66,7 +66,7 @@ class VLLMLauncher:
         if port:
             command.extend(['--port', str(port)])
         if gpu_memory_utilization:
-            command.extend(['--gpu-memory--utilization', str(gpu_memory_utilization)])
+            command.extend(['--gpu-memory-utilization', str(gpu_memory_utilization)])
         if lora_modules:
             command.extend(['--lora-modules', lora_modules])
         # launch vllm server
