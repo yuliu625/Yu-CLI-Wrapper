@@ -50,14 +50,30 @@ class NoHupWrapper:
         is_log_append: bool,
         is_dry_run: bool,
     ) -> str | subprocess.Popen[bytes]:
+        """
+        使用 nohup 运行原始的shell命令。
+
+        Args:
+            command_args (Sequence[str]): 原始的子命令。
+            log_file_path (str): 日志路径。
+            is_log_append (bool): 日志打开模式:
+                - True: 追加模式。
+                - False: 覆盖模式。
+            is_dry_run (bool): 是否 dry run 以预览命令。
+
+        Returns:
+            Union[str | subprocess.Popen[bytes]]:
+                - str: dry run下的 shell command 字符串。
+                - subprocess.Popen[bytes]: subprocess.Popen 控制对象。
+        """
         # 由于nohup的特殊符号，命令启动需要以str进行。
         command_str = "nohup " + " ".join(command_args)
         # 选择追加模式或覆盖模式。
         redirect_operator = '>>' if is_log_append else '>'
         # 命令拼接。
-        command_str = f"{redirect_operator} {command_str}{log_file_path} 2>&1 &"
+        command_str = f"{command_str} {redirect_operator}{log_file_path} 2>&1 &"
         if is_dry_run:
-            print(command_str)
+            print(f"Shell Command: \n{command_str}")
             return command_str
         else:
             # 非阻塞运行。
@@ -71,14 +87,14 @@ if __name__ == '__main__':
     # 运行示例。
     ## dry run test
     NoHupWrapper.run(
-        command_args=['python', "program_path",],
+        command_args=['python', "./program_path", '--config', 'args', ],
         log_file_path="/path/to/log_file.log",
         is_log_append=True,
         is_dry_run=True,
     )
     ## run with nohup
     NoHupWrapper.run(
-        command_args=['python', "program_path",],
+        command_args=['python', "./program_path", '--config', 'args', ],
         log_file_path="/path/to/log_file.log",
         is_log_append=True,
         is_dry_run=False,
