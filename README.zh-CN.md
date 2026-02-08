@@ -1,8 +1,8 @@
-# CLI Wrapper
+# 🚀 CLI Wrapper
 **让复杂的 CLI 命令回归简单。** 这是一个基于 Python 封装的声明式命令行工具集，旨在替代晦涩难写的 Shell 脚本，提供更友好、更安全的交互体验。
 
 
-## 核心理念
+## 💡 核心理念
 在日常开发中，我们经常面临以下困扰:
 - **Shell 语法之痛**: 逻辑控制、字符串处理在 Shell 中极其繁琐，直接编写和维护脚本体验不佳。
 - **交互不便**: 终端输入缺乏补全，长命令修改困难。
@@ -14,7 +14,7 @@
 3. **零依赖优先**: 核心功能尽可能仅依赖 Python 标准库(`subprocess`, `asyncio`)，保持轻量快速。
 
 
-## 项目内容
+## 📦 项目内容
 
 | 模块 | 描述 | 包含内容 |
 | --- | --- | --- |
@@ -30,19 +30,19 @@
 *工具列表正根据日常使用需求持续更新中。*
 
 
-## 如何使用
+## 🛠️ 如何使用
 本项目设计的初衷是**开箱即用**。每个脚本通常可以独立运行:
 1. **配置**：打开对应模块下的 Python 脚本，修改脚本顶部的配置项（如路径、端口、模型名称等）。
 2. **预览 (Dry Run)**：直接运行脚本。程序会打印出即将执行的完整 Shell 命令，但**不会**真正触碰系统。
-3. **执行**：确认命令无误后，将脚本中的 `dry_run=True` 改为 `dry_run=False`，再次运行即可真实执行。
+3. **执行**：确认命令无误后，将脚本中的 `is_dry_run=True` 改为 `is_dry_run=False`，再次运行即可真实执行。
 
 ```python
 # 示例逻辑
-dry_run = True  # 修改为 False 即可正式运行
+is_dry_run = True  # 修改为 False 即可正式运行
 ```
 
 
-## 相关项目
+## 🔗 相关项目
 我维护的其他工具库，可能对你有用: 
 - **[Python-Environment-Configurations](https://github.com/yuliu625/Yu-Python-Environment-Configurations)**: 针对 Python 工具链（Pip, Conda, UV 等）的环境配置仓库。
 - **[Deployment-Toolkit](https://github.com/yuliu625/Yu-Deployment-Toolkit)**: 原始 OS 脚本（Shell/PowerShell）的工具包合集。
