@@ -1,8 +1,8 @@
-# CLI Wrapper
+# 🚀 CLI Wrapper
 **Bringing simplicity back to complex CLI commands.** This is a declarative command-line toolkit built on Python wrappers. It is designed to replace obscure Shell scripts with a more user-friendly, secure, and interactive experience.
 
 
-## Core Philosophy
+## 💡 Core Philosophy
 Developers often face these common frustrations:
 - **The Pain of Shell Syntax**: Logic control and string manipulation in Shell are cumbersome, making scripts difficult to write and maintain.
 - **Poor Interactivity**: Terminal inputs often lack proper autocompletion, and modifying long, complex commands is tedious.
@@ -14,7 +14,7 @@ Developers often face these common frustrations:
 3. **Zero-Dependency Priority**: Core functions rely primarily on the Python Standard Library (`subprocess`, `asyncio`) to remain lightweight and fast.
 
 
-## Project Structure (Contents)
+## 📦 Project Structure (Contents)
 
 | Module | Description | Included Tools |
 | --- | --- | --- |
@@ -30,19 +30,19 @@ Developers often face these common frustrations:
 *The tool list is continuously updated based on daily requirements.*
 
 
-## How to Use
+## 🛠️ How to Use
 This project is designed to be **out-of-the-box**. Each script is typically standalone:
 1. **Configure**: Open the Python script in the relevant module and modify the configuration variables at the top (e.g., paths, ports, model names).
 2. **Dry Run**: Run the script directly. The program will print the full Shell command it *intends* to run but **will not** actually execute it on your system.
-3. **Execute**: Once you verify the command is correct, change `dry_run=True` to `dry_run=False` in the script and run it again to perform the real action.
+3. **Execute**: Once you verify the command is correct, change `is_dry_run=True` to `is_dry_run=False` in the script and run it again to perform the real action.
 
 ```python
 # Example Logic
-dry_run = True  # Change to False for actual execution
+is_dry_run = True  # Change to False for actual execution
 ```
 
 
-## Related Projects
+## 🔗 Related Projects
 Other toolkits I maintain that you might find useful:
 - **[Python-Environment-Configurations](https://github.com/yuliu625/Yu-Python-Environment-Configurations)**: Environment configurations for Python toolchains (Pip, Conda, UV, etc.).
 - **[Deployment-Toolkit](https://github.com/yuliu625/Yu-Deployment-Toolkit)**: A collection of raw OS scripts (Shell/PowerShell).
