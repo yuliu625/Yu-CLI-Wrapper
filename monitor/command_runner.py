@@ -23,6 +23,9 @@ from typing import TYPE_CHECKING, Sequence
 
 
 class CommandRunner:
+    """
+    python 原生运行命令方法。
+    """
     @staticmethod
     def run_background(
         command_args: Sequence[str],
@@ -30,6 +33,22 @@ class CommandRunner:
         is_log_append: bool,
         is_dry_run: bool,
     ) -> str | subprocess.Popen[str]:
+        """
+        使用 subprocess.Popen 在后台启动命令。
+
+        Args:
+            command_args (Sequence[str]): 原始的子命令。
+            log_file_path (str): 日志路径。
+            is_log_append (bool): 日志打开模式:
+                - True: 追加模式。
+                - False: 覆盖模式。
+            is_dry_run (bool): 是否 dry run 以预览命令。
+
+        Returns:
+            Union[str | subprocess.Popen[bytes]]:
+                - str: dry run下的 shell command 字符串。
+                - subprocess.Popen[bytes]: subprocess.Popen 控制对象。
+        """
         if is_dry_run:
             command_str = ' '.join(command_args)
             print(command_str)
